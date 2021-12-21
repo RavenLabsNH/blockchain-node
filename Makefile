@@ -52,7 +52,7 @@ console:
 	./_build/$(PROFILE)/rel/blockchain_node/bin/blockchain_node remote_console
 
 docker-build:
-	docker build -t helium/node .
+	docker build --build-arg BUILDER_IMAGE=erlang:22.3.2-alpine --build-arg RUNNER_IMAGE=erlang:22.3.2-alpine -t helium/node .
 
 docker-clean: docker-stop
 	docker rm node
