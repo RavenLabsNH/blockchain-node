@@ -3,7 +3,6 @@ ARG RUNNER_IMAGE
 
 FROM ${BUILDER_IMAGE} as deps-compiler
 
-ARG BUILD_TARGET=docker_node
 
 RUN apk add --no-cache --update \
     git tar build-base linux-headers autoconf automake libtool pkgconfig \
@@ -29,6 +28,8 @@ RUN ./rebar3 compile
 FROM deps-compiler as builder
 
 ARG VERSION
+
+ARG BUILD_TARGET=docker_node
 
 # Now add our code
 COPY . .
