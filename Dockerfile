@@ -58,5 +58,5 @@ COPY --from=builder /opt/docker ./
 
 RUN ln -sf releases/$VERSION /config
 
-ENTRYPOINT ["/opt/node/bin/blockchain_node"]
+ENTRYPOINT ["/opt/blockchain_node/bin/blockchain_node"]
 CMD ["foreground"]
